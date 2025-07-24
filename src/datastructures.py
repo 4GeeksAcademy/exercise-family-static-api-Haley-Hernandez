@@ -26,16 +26,27 @@ class FamilyStructure:
         return generated_id
 
     def add_member(self, member):
+        self._members.append(member)
+        return self._members #placeholder
         ## You have to implement this method
         ## Append the member to the list of _members
-        pass
+        
 
     def delete_member(self, id):
+        for member in self._members:
+            if member["id"] == id: 
+                self._members.remove(member)
+        return self._members
         ## You have to implement this method
         ## Loop the list and delete the member with the given id
-        pass
 
     def get_member(self, id):
+        for member in self._members:
+            if member["id"] == id:
+                return member
+        else: 
+            return f"Member with ID {id} not found"
+            
         ## You have to implement this method
         ## Loop all the members and return the one with the given id
         pass
