@@ -46,7 +46,14 @@ def get_member_path(member_id):
 @app.route('/members', methods=['POST'])
 def add_member_path():
     new_member_data = request.get_json() #turns the JSON data into a python dictionary
-    member = jackson_family.add_member(new_member_data)
+    member = jackson_family.a_member(new_member_data)
+    response_body = {"family": member}
+    return jsonify(response_body), 200
+
+@app.route('/members', methods=['PUT']) #working on this I need help with this part
+def update_member_path(member_id,update_member_data):
+    update_member_data = request.get_json() #turns the JSON data into a python dictionary
+    member = jackson_family._member(update_member_data)
     response_body = {"family": member}
     return jsonify(response_body), 200
 
@@ -54,9 +61,6 @@ def add_member_path():
 def delete_member_path(member_id):
     result = jackson_family.delete_member(member_id)
     return jsonify(result), 200
-
-
-
 
 # This only runs if `$ python src/app.py` is executed
 if __name__ == '__main__':

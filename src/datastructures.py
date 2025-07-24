@@ -45,7 +45,7 @@ class FamilyStructure:
             if member["id"] == id:
                 return member
         else: 
-            return f"Member with ID {id} not found"
+            return None
             
         ## You have to implement this method
         ## Loop all the members and return the one with the given id
