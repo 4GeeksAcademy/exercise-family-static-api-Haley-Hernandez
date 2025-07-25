@@ -47,9 +47,16 @@ class FamilyStructure:
         else: 
             return None
             
+    def update_member (self, updated_member):
+        for member in self._members:
+            if member ["id"] == updated_member["id"]:
+                return updated_member
+        else:
+            return None
+
+            
         ## You have to implement this method
         ## Loop all the members and return the one with the given id
-        pass
 
     # This method is done, it returns a list with all the family members
     def get_all_members(self):
